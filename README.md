@@ -1,4 +1,4 @@
-** Contains packages for frontend dev workflow **
+**Contains packages for frontend dev workflow**
 
 Includes
 
