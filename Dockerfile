@@ -17,7 +17,7 @@ RUN set -ex \
     gpg --keyserver ha.pool.sks-keyservers.net --recv-keys "$key" ; \
   done
 
-ENV NPM_CONFIG_LOGLEVEL info
+ENV NPM_CONFIG_LOGLEVEL warn
 ENV NODE_VERSION 6.11.1
 
 RUN buildDeps='xz-utils' \
@@ -53,4 +53,9 @@ RUN set -ex \
   && rm yarn-v$YARN_VERSION.tar.gz.asc yarn-v$YARN_VERSION.tar.gz \
   && apt-get purge -y --auto-remove curl
 
+ENV BOWER_VERSION 1.8.0
+ENV GULP_VERSION 3.9.1
+
+RUN npm install -g bower@${BOWER_VERSION} 
+RUN npm install -g gulp@${GULP_VERSION}
 CMD ["entrypoint.sh"]
